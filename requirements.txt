@@ -1,0 +1,105 @@
+# ============================================================
+# AI Meeting Assistant
+# Recommended Python: 3.12
+# ============================================================
+
+# -------------------------
+# UI
+# -------------------------
+streamlit>=1.45,<2.0
+
+# -------------------------
+# Environment
+# -------------------------
+python-dotenv>=1.0
+
+# -------------------------
+# LangChain / LCEL
+# -------------------------
+langchain>=0.3
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-text-splitters>=0.3
+
+# -------------------------
+# LLM Providers
+# -------------------------
+
+# OpenAI
+openai>=1.0
+langchain-openai>=0.3
+
+# Groq
+groq>=0.20
+langchain-groq>=0.3
+
+# Google Gemini
+google-genai>=1.0
+langchain-google-genai>=2.0
+
+# Anthropic Claude
+anthropic>=0.40
+langchain-anthropic>=0.3
+
+# -------------------------
+# Local Whisper
+# -------------------------
+
+# Keep modern NumPy/Numba stack instead of old
+# numba 0.53.1 -> llvmlite 0.36.0
+numpy>=1.26,<3
+numba>=0.60
+llvmlite>=0.43
+
+openai-whisper
+
+# PyTorch
+torch>=2.2
+torchaudio>=2.2
+
+# -------------------------
+# Audio Processing
+# -------------------------
+ffmpeg-python>=0.2.0
+pydub>=0.25
+
+# -------------------------
+# YouTube
+# -------------------------
+yt-dlp>=2026.07.04
+
+# -------------------------
+# RAG / ChromaDB
+# -------------------------
+chromadb>=0.5
+langchain-chroma>=0.2
+
+# -------------------------
+# Hugging Face Embeddings
+# -------------------------
+sentence-transformers>=3.0
+transformers>=4.40
+huggingface-hub>=0.25
+langchain-huggingface>=0.1
+
+# -------------------------
+# Tokenization
+# -------------------------
+tiktoken>=0.7
+
+# -------------------------
+# Structured Output
+# -------------------------
+pydantic>=2.7
+
+# -------------------------
+# PDF Export
+# -------------------------
+reportlab>=4.0
+
+# -------------------------
+# General Utilities
+# -------------------------
+requests>=2.31
+pandas>=2.2
+tqdm>=4.66
