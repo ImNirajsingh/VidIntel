@@ -1,4 +1,4 @@
-# 🎥 VidIntel — AI Video Intelligence & RAG Assistant
+# VidIntel — AI Video Intelligence & RAG Assistant
 
 > **VidIntel** is an AI-powered video intelligence system that converts long-form video/audio content into structured, searchable knowledge.
 
@@ -8,7 +8,7 @@ The project is built using **Python, PyTorch, OpenAI Whisper, LangChain, Groq, H
 
 ---
 
-# 🚀 Project Overview
+# Project Overview
 
 Traditional video files contain a large amount of information, but searching and understanding that information manually can be difficult.
 
@@ -69,7 +69,7 @@ YouTube URL / Local Video / Audio
 
 ---
 
-# 🎯 Main Objectives
+# Main Objectives
 
 VidIntel is designed to solve several problems associated with long-form video and meeting content:
 
@@ -91,7 +91,7 @@ VidIntel is designed to solve several problems associated with long-form video a
 
 ---
 
-# 🧠 Key AI Concepts Used
+# Key AI Concepts Used
 
 This project demonstrates several important AI Engineering concepts:
 
@@ -135,7 +135,7 @@ RAG
 
 ---
 
-# 🛠️ Technology Stack
+# Technology Stack
 
 | Component | Technology |
 |---|---|
@@ -190,7 +190,7 @@ VidIntel-main/
 
 ---
 
-# 🔍 Component Architecture
+# Component Architecture
 
 The project is divided into several logical components.
 
@@ -245,7 +245,7 @@ WAV Audio
 
 ---
 
-# 📥 YouTube Audio Download
+# YouTube Audio Download
 
 The function:
 
@@ -285,7 +285,7 @@ The result is a WAV file.
 
 ---
 
-# 🌐 Why yt-dlp?
+# Why yt-dlp?
 
 `yt-dlp` is used to retrieve audio from supported online video platforms.
 
@@ -305,7 +305,7 @@ This significantly simplifies the AI pipeline because the primary information so
 
 ---
 
-# 🧩 Browser Cookie Support
+# Browser Cookie Support
 
 The code optionally supports browser cookies:
 
@@ -325,7 +325,7 @@ For public videos, cookies are normally not required.
 
 ---
 
-# 🎵 Local File Processing
+# Local File Processing
 
 The function:
 
@@ -355,7 +355,7 @@ audio = audio.set_channels(1).set_frame_rate(16000)
 
 ---
 
-# 🔊 Why Mono Audio?
+# Why Mono Audio?
 
 The speech recognition pipeline generally does not require stereo information.
 
@@ -371,7 +371,7 @@ reduces unnecessary audio data while preserving the speech signal.
 
 ---
 
-# ⏱️ Why 16 kHz?
+# Why 16 kHz?
 
 The audio is converted to:
 
@@ -385,7 +385,7 @@ This is a common speech-processing representation and provides enough temporal r
 
 ---
 
-# ✂️ Audio Chunking
+# Audio Chunking
 
 Long audio is divided into chunks using:
 
@@ -414,7 +414,7 @@ Chunk 5 → 40–50 min
 
 ---
 
-# 🤔 Why Chunk Long Audio?
+# Why Chunk Long Audio?
 
 Processing a very long audio file in one operation can create several problems:
 
@@ -487,7 +487,7 @@ creates the audio chunks.
 
 ---
 
-# 🎙️ Module 2 — `core/transcriber.py`
+# Module 2 — `core/transcriber.py`
 
 This module handles speech-to-text.
 
@@ -507,7 +507,7 @@ English Transcript
 
 ---
 
-# 🧠 Whisper
+# Whisper
 
 The project uses:
 
@@ -561,7 +561,7 @@ Once loaded, the same model instance can be reused for multiple chunks.
 
 ---
 
-# 🎤 Whisper Transcription
+# Whisper Transcription
 
 Each audio chunk is processed using:
 
@@ -580,7 +580,7 @@ result["text"]
 
 ---
 
-# 🌍 Language Routing
+# Language Routing
 
 The central function is:
 
@@ -658,7 +658,7 @@ This is particularly useful when the spoken content contains Indian-language/Hin
 
 ---
 
-# ⏱️ Sarvam API Audio Limitation
+# Sarvam API Audio Limitation
 
 The code intentionally splits Sarvam requests into:
 
@@ -688,7 +688,7 @@ The 25-second size provides a safety margin below the 30-second limit.
 
 ---
 
-# 🔄 Sarvam Processing Flow
+# Sarvam Processing Flow
 
 For every 10-minute chunk:
 
@@ -773,7 +773,7 @@ It also generates a professional title.
 
 ---
 
-# ✂️ Summary Chunking
+# Summary Chunking
 
 The summarization splitter uses:
 
@@ -793,7 +793,7 @@ Overlap       = 200 characters
 
 ---
 
-# 🤔 Why Use Chunking for Summarization?
+# Why Use Chunking for Summarization?
 
 Large transcripts may exceed the context limits or become expensive to process as one prompt.
 
@@ -821,7 +821,7 @@ This is essentially a **map-reduce style summarization pipeline**.
 
 ---
 
-# 🗺️ Map Phase
+# Map Phase
 
 The project creates:
 
@@ -854,7 +854,7 @@ Transcript Chunk 3 → Summary 3
 
 ---
 
-# 🔗 Reduce Phase
+# Reduce Phase
 
 All partial summaries are combined:
 
@@ -885,7 +885,7 @@ Final Summary
 
 ---
 
-# 🏷️ Automatic Title Generation
+# Automatic Title Generation
 
 VidIntel also generates a short title:
 
@@ -917,7 +917,7 @@ This reduces unnecessary input to the title-generation model.
 
 ---
 
-# 🧠 Module 4 — `core/extractor.py`
+# Module 4 — `core/extractor.py`
 
 This module extracts structured information from the transcript.
 
@@ -931,7 +931,7 @@ Open Questions
 
 ---
 
-# 🔨 Common LLM Chain
+# Common LLM Chain
 
 The helper function:
 
@@ -1031,7 +1031,7 @@ No key decisions found.
 
 ---
 
-# ❓ Open Question Extraction
+# Open Question Extraction
 
 The function:
 
@@ -1054,7 +1054,7 @@ No open questions found.
 
 ---
 
-# 🧠 Why Information Extraction Is Useful
+# Why Information Extraction Is Useful
 
 Instead of forcing the user to read the entire transcript, VidIntel converts unstructured speech into structured knowledge:
 
@@ -1074,7 +1074,7 @@ This is one of the major practical applications of LLMs in productivity systems.
 
 ---
 
-# 📚 Module 5 — `core/vector_store.py`
+# Module 5 — `core/vector_store.py`
 
 This module creates the semantic search layer.
 
@@ -1094,7 +1094,7 @@ ChromaDB
 
 ---
 
-# 🧠 Embedding Model
+# Embedding Model
 
 The project uses:
 
@@ -1126,7 +1126,7 @@ The exact vector values are generated by the model.
 
 ---
 
-# 🤔 Why Embeddings?
+# Why Embeddings?
 
 Keyword search only looks for matching words.
 
@@ -1153,7 +1153,7 @@ Semantic embeddings allow the system to identify that these texts have similar m
 
 ---
 
-# 🔢 Vector Store Configuration
+# Vector Store Configuration
 
 The vector database is configured as:
 
@@ -1172,7 +1172,7 @@ The repository's `.gitignore` excludes this directory.
 
 ---
 
-# ✂️ RAG Chunking
+# RAG Chunking
 
 The vector store uses a smaller chunk size:
 
@@ -1210,7 +1210,7 @@ The smaller RAG chunks provide more precise retrieval.
 
 ---
 
-# 🔄 Why Chunk Overlap?
+# Why Chunk Overlap?
 
 Suppose a sentence is divided near a chunk boundary.
 
@@ -1260,7 +1260,7 @@ This allows each vectorized chunk to retain its original chunk index.
 
 ---
 
-# 🧮 Building the Vector Store
+# Building the Vector Store
 
 The main function:
 
@@ -1284,7 +1284,7 @@ Store vectors in ChromaDB
 
 ---
 
-# 💾 Persistent Vector Database
+# Persistent Vector Database
 
 Chroma is configured with:
 
@@ -1302,7 +1302,7 @@ This allows the database to be loaded later rather than necessarily rebuilding i
 
 ---
 
-# 🔎 Retriever
+# Retriever
 
 The retriever is created using:
 
@@ -1333,7 +1333,7 @@ Top 4 semantically similar chunks
 
 ---
 
-# 🧠 Why Top-K Retrieval?
+# Why Top-K Retrieval?
 
 Suppose the transcript contains hundreds of chunks.
 
@@ -1367,7 +1367,7 @@ Instead of asking the LLM to answer from its general knowledge, VidIntel first r
 
 ---
 
-# 🧠 RAG Architecture
+# RAG Architecture
 
 ```text
 User Question
@@ -1396,7 +1396,7 @@ Answer
 
 ---
 
-# 🔍 Building the RAG Chain
+# Building the RAG Chain
 
 The function:
 
@@ -1427,7 +1427,7 @@ llm = get_llm()
 
 ---
 
-# 🤖 LLM Used
+# LLM Used
 
 The project currently initializes:
 
@@ -1455,7 +1455,7 @@ model identifier configured in the source code.
 
 ---
 
-# 🛡️ Hallucination Control
+# Hallucination Control
 
 One of the most important parts of the RAG prompt is:
 
@@ -1476,7 +1476,7 @@ The system attempts to prevent the LLM from answering using unrelated external k
 
 ---
 
-# 🧠 Why RAG Instead of Normal LLM Chat?
+# Why RAG Instead of Normal LLM Chat?
 
 A normal LLM may answer:
 
@@ -1506,7 +1506,7 @@ This makes the answer grounded in the processed video.
 
 ---
 
-# 🔗 LCEL RAG Pipeline
+# LCEL RAG Pipeline
 
 The project uses LangChain Expression Language (LCEL).
 
@@ -1582,7 +1582,7 @@ becomes the context provided to the LLM.
 
 ---
 
-# 💬 Asking Questions
+# Asking Questions
 
 The function:
 
@@ -1603,7 +1603,7 @@ The final answer is returned as text.
 
 ---
 
-# 🔄 Complete RAG Example
+# Complete RAG Example
 
 Suppose the transcript contains:
 
@@ -1641,7 +1641,7 @@ The transcript is the knowledge source.
 
 ---
 
-# 🧩 Module 7 — `main.py`
+# Module 7 — `main.py`
 
 `main.py` is the main backend orchestration layer.
 
@@ -1656,7 +1656,7 @@ def run_pipeline(
 
 ---
 
-# 🔄 Complete Pipeline
+# Complete Pipeline
 
 The function executes:
 
@@ -1701,7 +1701,7 @@ rag_chain = build_rag_chain(transcript)
 
 ---
 
-# 📦 Pipeline Output
+# Pipeline Output
 
 The function returns:
 
@@ -1731,7 +1731,7 @@ RAG Chain
 
 ---
 
-# 🧠 End-to-End System
+# End-to-End System
 
 The entire backend can be understood as:
 
@@ -1797,7 +1797,7 @@ The entire backend can be understood as:
 
 ---
 
-# 📊 Chunking Strategy
+# Chunking Strategy
 
 The project intentionally uses different chunking strategies for different tasks.
 
@@ -1814,7 +1814,7 @@ Different tasks have different requirements.
 
 ---
 
-# 🧠 Why Different Chunk Sizes?
+# Why Different Chunk Sizes?
 
 ## Audio
 
@@ -1864,7 +1864,7 @@ because retrieval benefits from smaller, focused pieces of information.
 
 ---
 
-# 🎯 Prompt Engineering
+# Prompt Engineering
 
 VidIntel uses different prompts for different tasks.
 
@@ -1937,7 +1937,7 @@ without a dedicated evaluation dataset.
 
 ---
 
-# 🎙️ Transcription Quality
+# Transcription Quality
 
 Speech-to-text quality depends on several factors:
 
@@ -1975,7 +1975,7 @@ is used.
 
 ---
 
-# 📏 Better Transcription Evaluation
+# Better Transcription Evaluation
 
 A future version could evaluate transcription using:
 
@@ -2004,7 +2004,7 @@ A labeled collection of real audio recordings and reference transcripts would be
 
 ---
 
-# 📊 RAG Evaluation
+# RAG Evaluation
 
 RAG quality should also be evaluated separately.
 
@@ -2032,7 +2032,7 @@ Then the retrieval and generated answer could be evaluated systematically.
 
 ---
 
-# 🧪 Example Evaluation Dataset
+# Example Evaluation Dataset
 
 A future evaluation dataset could look like:
 
@@ -2238,7 +2238,7 @@ to GitHub.
 
 ---
 
-# 🔑 Environment Variables
+# Environment Variables
 
 The project uses several configurable environment variables.
 
@@ -2258,7 +2258,7 @@ YTDLP_BROWSER=
 
 ---
 
-# 🧠 Environment Variable Explanation
+# Environment Variable Explanation
 
 ## `GROQ_API_KEY`
 
@@ -2330,7 +2330,7 @@ Only configure this when necessary and supported by your local environment.
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## 1. Clone the Repository
 
@@ -2346,7 +2346,7 @@ cd VidIntel-main
 
 ---
 
-# 🐍 2. Create a Virtual Environment
+# 2. Create a Virtual Environment
 
 Recommended:
 
@@ -2368,7 +2368,7 @@ source .venv/bin/activate
 
 ---
 
-# 📦 3. Install Python Dependencies
+# 3. Install Python Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -2384,7 +2384,7 @@ as indicated in the provided `requirements.txt`.
 
 ---
 
-# 🎵 4. Install FFmpeg
+# 4. Install FFmpeg
 
 FFmpeg is required for audio/video conversion.
 
@@ -2412,7 +2412,7 @@ If FFmpeg is correctly installed, the command should display the installed FFmpe
 
 ---
 
-# 🟢 5. Node.js Requirement
+# 5. Node.js Requirement
 
 The yt-dlp configuration includes:
 
@@ -2432,7 +2432,7 @@ node --version
 
 ---
 
-# 🔑 6. Configure `.env`
+# 6. Configure `.env`
 
 Create:
 
@@ -2458,7 +2458,7 @@ Do not commit this file to GitHub.
 
 ---
 
-# ▶️ Running the Backend Pipeline
+# Running the Backend Pipeline
 
 The main backend entry point is:
 
@@ -2496,7 +2496,7 @@ english
 
 ---
 
-# 🧪 Testing the Pipeline
+# Testing the Pipeline
 
 The project also contains:
 
@@ -2534,7 +2534,7 @@ python test.py
 
 ---
 
-# 📦 Requirements
+# Requirements
 
 The project contains a comprehensive `requirements.txt`.
 
@@ -2587,7 +2587,7 @@ tqdm
 
 ---
 
-# 💻 GPU Support
+# GPU Support
 
 Whisper is built on PyTorch and can take advantage of GPU acceleration when the environment supports it.
 
@@ -2609,7 +2609,7 @@ PyTorch can use the available CUDA device for supported operations.
 
 ---
 
-# ⚡ Performance Considerations
+# Performance Considerations
 
 VidIntel contains several computationally expensive operations.
 
@@ -2625,7 +2625,7 @@ The main cost centers are:
 
 ---
 
-# 💰 API Cost Considerations
+# API Cost Considerations
 
 The project uses a combination of local and external AI processing.
 
@@ -2680,7 +2680,7 @@ Therefore, a single video can produce multiple LLM calls.
 
 ---
 
-# 🔢 Approximate LLM Call Pattern
+# Approximate LLM Call Pattern
 
 For one transcript, the current backend can perform approximately:
 
@@ -2705,7 +2705,7 @@ The exact number of calls depends on transcript length and user interaction.
 
 ---
 
-# 🧠 AI Architecture Summary
+# AI Architecture Summary
 
 VidIntel is effectively a multi-stage AI system:
 
@@ -2741,7 +2741,7 @@ Retrieval-Augmented Generation
 
 ---
 
-# 🏗️ Production Architecture
+# Production Architecture
 
 A more production-oriented architecture could look like:
 
@@ -2798,7 +2798,7 @@ A more production-oriented architecture could look like:
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
 ## 1. Speaker Diarization
 
@@ -3139,7 +3139,7 @@ Each component solves a different problem.
 
 ---
 
-# 🎯 Why RAG Is Important
+# Why RAG Is Important
 
 An LLM by itself is not a database for your private video.
 
@@ -3173,9 +3173,9 @@ without manually searching through the complete transcript.
 
 ---
 
-# 🔥 Project Highlights
+# Project Highlights
 
-### 🎙️ Multi-Engine Speech Recognition
+### Multi-Engine Speech Recognition
 
 ```text
 English  → Whisper
@@ -3184,7 +3184,7 @@ Hinglish → Sarvam AI
 
 ---
 
-### 🧠 LLM-Powered Understanding
+### LLM-Powered Understanding
 
 The system generates:
 
@@ -3198,7 +3198,7 @@ Open Questions
 
 ---
 
-### 🔎 Semantic Search
+### Semantic Search
 
 Instead of simple keyword matching:
 
@@ -3214,7 +3214,7 @@ Relevant Transcript
 
 ---
 
-### 🤖 RAG-Based Question Answering
+### RAG-Based Question Answering
 
 ```text
 Question
@@ -3228,7 +3228,7 @@ Grounded Answer
 
 ---
 
-### 💾 Persistent Vector Store
+### Persistent Vector Store
 
 Transcript embeddings are stored using:
 
@@ -3240,7 +3240,7 @@ allowing the semantic retrieval layer to persist on disk.
 
 ---
 
-# ⚠️ Important Technical Clarification
+# Important Technical Clarification
 
 This project should not be described as a model that was:
 
@@ -3287,7 +3287,7 @@ This is a legitimate and important category of modern **AI Engineering**.
 
 ---
 
-# 📈 What Makes This an AI Engineering Project?
+# What Makes This an AI Engineering Project?
 
 The project combines multiple AI systems into a single end-to-end pipeline.
 
@@ -3325,7 +3325,7 @@ The project demonstrates practical skills in:
 
 ---
 
-# 📝 Important Code-Level Notes
+# Important Code-Level Notes
 
 ## `summerized.py`
 
@@ -3372,7 +3372,7 @@ Similarly, some imports can be cleaned up as part of future refactoring.
 
 ---
 
-# 🧹 Recommended Code Quality Improvements
+# Recommended Code Quality Improvements
 
 A production-quality version could introduce:
 
@@ -3395,7 +3395,7 @@ Evaluation
 
 ---
 
-# 🧪 Testing Strategy
+# Testing Strategy
 
 A stronger testing setup could contain:
 
@@ -3448,7 +3448,7 @@ Answer generation
 
 ---
 
-# 🛡️ Error Handling Improvements
+# Error Handling Improvements
 
 The current code handles some errors, such as failed Sarvam requests.
 
@@ -3477,7 +3477,7 @@ Out-of-memory errors
 
 ---
 
-# 🚀 Future Version Architecture
+# Future Version Architecture
 
 A mature version of VidIntel could evolve toward:
 
@@ -3615,7 +3615,7 @@ The project demonstrates practical implementation of modern AI application archi
 
 ---
 
-# 👨‍💻 Skills Demonstrated
+# Skills Demonstrated
 
 This project demonstrates practical experience with:
 
@@ -3646,22 +3646,12 @@ Information Extraction
 
 ---
 
-# 🔥 One-Line Project Description
+# One-Line Project Description
 
 > **VidIntel is an AI-powered video intelligence and RAG assistant that transforms YouTube or local media into transcripts, summaries, actionable insights, and context-grounded conversational knowledge.**
 
 ---
 
-# 📌 Resume-Ready Project Description
-
-**VidIntel — AI Video Intelligence & RAG Assistant**
-
-- Built an end-to-end AI video intelligence pipeline using **Whisper/Sarvam for speech-to-text, Groq LLMs for summarization and information extraction, and LangChain + ChromaDB for RAG-based semantic Q&A**.
-- Designed a modular processing pipeline supporting **YouTube/local media ingestion, audio normalization, long-audio chunking, transcript generation, summaries, action items, key decisions, and unresolved questions**.
-- Implemented a **retrieval-augmented generation pipeline** using `all-MiniLM-L6-v2` embeddings and ChromaDB similarity search to ground LLM responses in transcript context.
-- Added multilingual/Hinglish processing through **Sarvam AI**, local English transcription through **Whisper**, persistent vector storage, and configurable AI components through environment variables.
-
----
 
 # 📜 License
 
@@ -3690,7 +3680,7 @@ SOFTWARE.
 
 ---
 
-# 🙌 Acknowledgements
+# Acknowledgements
 
 This project uses open-source and API-based technologies including:
 
