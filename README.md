@@ -1,4 +1,4 @@
-# VidIntel — AI Video Intelligence & RAG Assistant
+# VidIntel : AI Video Intelligence & RAG Assistant
 
 > **VidIntel** is an AI-powered video intelligence system that converts long-form video/audio content into structured, searchable knowledge.
 
